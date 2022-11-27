@@ -1,5 +1,9 @@
-        // while(myFile.good()) {
-        //     string line;
-        //     getline(myFile, line, ',');
-        //     cout << line << endl;
-        // }
+
+
+
+    // void log_request(string title, int reg_num, string body) {
+
+
+
+    // }; // to log request to placement cell
+

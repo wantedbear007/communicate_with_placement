@@ -1,21 +1,32 @@
 #include<bits/stdc++.h>
-#include<fstream>
 using namespace std;
 
 class Student
 {
+    // File management classes
     ifstream getCompanies; 
+    ofstream writeFile;
+    
     string salary, place, mode, role, vacancy, code, company, country, branch;
+    // string reg_num, title, description;
 
 
     public:
     void student_login(int reg_num, string passwd); // student login
     void student_registration(string name, int reg_num, string passwd, string department, string email_address); // student registration
-    void log_request(string title, int reg_num, string body); // to log request to placement cell
+    void get_announcements(); // to get the announcements given by the placement wing 
+    // forgot password ho ske to implement kr dena
 
 
 
 
+    void log_request(string reg_num, string name, string branch, string title, string body) {
+
+        writeFile.open("CSVs/student_logs.csv", ios_base::app);
+        writeFile << reg_num << "," << name << "," << branch << "," << title << "," << body << "," << endl;
+        writeFile.close();
+
+    }; // to log request to placement cell
 
 
     void companies_today() {
@@ -42,9 +53,6 @@ class Student
             getline(getCompanies, role, ',');
             getline(getCompanies, code, ',');
 
-
-            
-
             cout << endl; 
             cout << "-----------------------------------------" << endl;
             cout << "Company " <<  company << endl;
@@ -58,6 +66,8 @@ class Student
             cout << "-----------------------------------------" << endl;
             cout << endl;
         }
+        getCompanies.close();
+
 
     }; // to list out the companies available today
 
@@ -84,6 +94,8 @@ class Student
             cout << "-----------------------------------------" << endl;
             cout << endl;
         }
+
+        getCompanies.close();
 
     }; // to list all the companies visited to our campus 
 
@@ -116,6 +128,8 @@ class Student
             cout << "-----------------------------------------" << endl;
 
         }
+        getCompanies.close();
+
     }; // to see all the internships available today
 
 };
@@ -155,10 +169,8 @@ class InitialOpening
             cout << "Welcome to Student Portal \n" << endl;
             // s1.list_visited_companies(); // module for listing visited companies
             // s1.internships_available(); // module for listing internships available
-            s1.companies_today(); // module for listing out companies available today in the campus
-            // select from the following
-            // login
-            // register
+            // s1.companies_today(); // module for listing out companies available today in the campus
+            s1.log_request("12212215", "Bhanupratap singh", "Computer Application",  "TEsting", "This module is I guess working file as of now"); // This module is to log request from the students
             return 0;
         }
         else if (user_input == 2) {
