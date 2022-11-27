@@ -104,7 +104,7 @@ class Student
         getCompanies.open("CSVS/internships.csv");
         // string salary, place, mode, role, vacancy, code;
 
-        cout << "List of internships available: " << endl;
+        // cout << "List of internships available: " << endl;
         cout<<"\n\n\n\n";
         cout << "\t\t\t||==============================================================================================||"<<endl;
         cout << "\t\t\t\tInternships Available                        Lovely Professional University, Phagwara" << endl;
@@ -136,10 +136,53 @@ class Student
 
 class Placement
 {
+
+    ofstream writeFile;
+    ifstream readFile;
+
+    string reg_num, name, branch, title, body;
+
     public:
     void placement_cell_login(int reg_num, string passwd); // login from placement cell
-    void placement_announcement(string title, string body, string author, string date); // function for making public announcement 
-    void student_requests(); // to view all the request from the student
+
+    void placement_announcement(string title, string body, string author, string date) {
+        writeFile.open("CSVs/announcements.csv");
+        writeFile << title << "," << body << "," << date << "," << author << "," << "Division Of Placement" << "," << "Lovely Professional University, Phagwara, Punjab" << "," << endl;
+        writeFile.close();
+
+    } // function for making public announcement 
+
+    void student_requests() {
+        cout<<"\n\n\n\n";
+        cout << "\t\t\t||========================================================================================================================================||"<<endl;
+        cout << "\t\t\t\tStudents Requests (Division of Placements)                                         Lovely Professional University, Phagwara" << endl;
+        cout << "\t\t\t||========================================================================================================================================||"<<endl;
+
+        readFile.open("CSVs/student_logs.csv");
+
+        while (readFile.good()) {
+            getline(readFile, reg_num, ',');
+            getline(readFile, name, ',');
+            getline(readFile, branch, ',');
+            getline(readFile, title, ',');
+            getline(readFile, body, ',');
+
+             cout << endl; 
+            cout << "-----------------------------------------------------------" << endl;
+            cout << "Registration Number:  " <<  reg_num << endl;
+            cout << "Student Name: " << name << endl;
+            cout << "Branch: " << branch << endl;
+            cout << "Title: " << title << endl;
+            cout << body << endl;
+            cout << "-----------------------------------------------------------" << endl;
+            cout << endl;
+
+
+
+
+        }
+
+    }; // to view all the request from the student
     void add_companies(string company_name, string company_desc, string profile_needed, string eligibility, string date); // to add companies available today
     void registered_users(); // to list all the registered users available 
     void placed_students(); // to list all the placed students 
@@ -164,17 +207,21 @@ class InitialOpening
     {
 
         Student s1;
+        Placement p1;
 
         if (user_input == 1) {
             cout << "Welcome to Student Portal \n" << endl;
             // s1.list_visited_companies(); // module for listing visited companies
             // s1.internships_available(); // module for listing internships available
             // s1.companies_today(); // module for listing out companies available today in the campus
-            s1.log_request("12212215", "Bhanupratap singh", "Computer Application",  "TEsting", "This module is I guess working file as of now"); // This module is to log request from the students
+            // s1.log_request("12212215", "Bhanupratap singh", "Computer Application",  "TEsting", "This module is I guess working file as of now"); // This module is to log request from the students
+            // Placement modules
             return 0;
         }
         else if (user_input == 2) {
-            cout << "Welcome to Placements Portal" << endl;
+            cout << "Welcome to Division of Placements" << endl;
+            // p1.placement_announcement("Bhnaupratap", "google is one of the biggest companies in the world", "Suraj pratap", "November 27"); // module for dropping announcements for students
+            p1.student_requests();
             return 0;
         }
         else if (user_input == 3) {
