@@ -297,8 +297,8 @@ class InitialOpening
          std::cout << R"(
                                                     .__ ._..  .._. __.._..__..  .  .__..___  .__ .   .__. __ .___.  ..___.  ..___.
                                                     |  \ | \  / | (__  | |  ||\ |  |  |[__   [__)|   [__]/  `[__ |\/|[__ |\ |  |  
-                                                    |__/_|_ \/ _|_.__)_|_|__|| \|  |__||     |   |___|  |\__.[___|  |[___| \|  |  
-                                                                                                                                  
+                                                    |__/_|_ \/ _|_.__)_|_|__|| \|  |__||     |   |___|  |\__.[___|  |[___| \|  | 
+	                                                                    V E R S I O N : 1.0 B E T A                                                                                 
                         )" << '\n';
                         Sleep(200);
         cout << "\t\t\t\t\t\t\t\t\tSelect from the following options: \n" << endl;Sleep(150);
@@ -306,7 +306,7 @@ class InitialOpening
         cout << "\t2. For Placement cell";Sleep(150);
         cout << "\t3. Exit";Sleep(150);
         cout << "\t4. Developers" << endl;Sleep(150);
-        cout << "Enter your options: (1-3) ";
+        cout << "Enter your options: (1-4) ";
     }
     
     int indexPage(int user_input) // initial index page of the project
@@ -603,13 +603,15 @@ class InitialOpening
     system("color a");
 
             std::cout << R"(
-                                                    .__ ._..  .._. __.._..__..  .  .__..___  .__ .   .__. __ .___.  ..___.  ..___.
-                                                    |  \ | \  / | (__  | |  ||\ |  |  |[__   [__)|   [__]/  `[__ |\/|[__ |\ |  |  
-                                                    |__/_|_ \/ _|_.__)_|_|__|| \|  |__||     |   |___|  |\__.[___|  |[___| \|  |  
-                                                                            V E R S I O N : 1.0 BETA                                                            
-                        )" << '\n';
-        cout << "\t\t\t\t\t\t\t\tBhanupratap Singh (12212215) " << endl;Sleep(150);
-        cout << "\t\t\t\t\t\t© Wantedbear Productions | All Rights Reserved";
+
+                                                                          PLACEMENT MANAGEMENT SYSTEM 
+                                                                           V E R S I O N : 1.0 BETA 
+                                                                          Bhanupratap Singh (12212215)
+                                                                © Wantedbear Productions | All Rights Reserved
+                                                                           
+                        )" << '\n'; 
+    //    cout << "\t\t\t\t\t\t\tBhanupratap Singh (12212215) " << endl;Sleep(150);
+    //    cout << "\t\t\t\t\t\t © Wantedbear Productions | All Rights Reserved";
         return 1;
         }
         else 
